@@ -1,0 +1,10 @@
+---
+title: BioPyC
+---
+
+A python platform for offline EEG and bio signals classification
+
+<!--more-->
+
+Research on brain-computer interfaces (BCIs) has become more democratic in recent decades, and experiments using electroencephalography (EEG)-based BCIs dramatically increased. The variety of protocol designs and the growing interest for physiological computing require parallel improvements in processing and classification of both EEG signals and bio signals such as electrodermal activity (EDA), heart rate (HR) or breathing. If some EEG-based analysis tools are already available for online BCIs with a number of online BCI platforms (e.g., BCI2000 or OpenViBE), it remains crucial to perform offline analyses in order to design, select, tune, validate and test algorithms before using them online. Moreover, studying and comparing those algorithms usually requires expertise in programming, signal processing and machine learning, whereas numerous BCI researchers come from other backgrounds with limited or no training in such skills. Finally, existing BCI toolboxes are focused on EEG and other brain signals, but usually do not include processing tools for other biosignals. Therefore, in this paper, we propose BioPyC, a free, open-source and easy-to-use python platform for offline EEG and biosignal processing and classification. Based on an intuitive and well-guided graphical interface, four main modules allow the user to follow the standard steps of the BCI process without any programming skills 1) reading different neurophysiological signal data formats 2) filtering and representing EEG and biosignals 3) classifying them 4) visualizing and performing statistical tests on the results.
+We illustrate BioPyC use on four studies, namely classifying motor imagery, cognitive workload, emotions and attention types from EEG signals. 

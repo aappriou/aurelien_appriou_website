@@ -1,0 +1,117 @@
+baseURL = "https://aappriou.github.io/appriou-site/"
+languageCode = "en-us"
+publishDir = "docs"
+title = "Aurélien Appriou"
+theme = "personal-web"
+copyright="© Aurélien Appriou"
+googleAnalytics = ""
+enableEmoji=true
+enableRobotsTXT=true
+pygmentsUseClasses=true
+pygmentsCodeFences=true
+
+[params.intro]
+  main = "Hi, I'm Aurélien"
+  sub = "PhD candidate in computer science"
+
+[params.main]
+  latestPublishHeader = " "
+
+[taxonomies]
+  design = "designs"
+  tech = "techs"
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[params]
+  breadcrumb = true
+  accentColor = "#FD3519"
+  mainSections = ['portfolio'] # values: ['post', 'portfolio'] only accept one section, to be displayed bellow 404
+  authorAvatar = "images/profile_picture.png"
+
+[params.notFound]
+  gopher = "/images/gopher.png" # checkout https://gopherize.me/
+  h1 = 'Bummer!'
+  p = "It seems that this page doesn't exist."
+
+[params.sections]
+  # Define how your sections will be called
+  # when automatically pulled. For instance in the 404 page
+  post = "article"
+  portfolio = "project"
+
+[params.sidebar]
+  backgroundImage = 'images/moi_SD.png' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
+  gradientOverlay = '' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
+  logo = "/images/profile_square.png"
+[params.assets]
+  favicon = ""
+  customCSS = ""
+
+[params.social]
+  twitter = "https://twitter.com/"
+  linkedin = "https://www.linkedin.com/in/"
+  gitlab = "https://gitlab.com/"
+
+
+[params.contact]
+  email = "aurelien [dot] appriou [at] inria [dot] fr"
+  text= "" # text of the contact link in the sidebar. If email params.contact.email is defined
+
+
+[menu]
+
+[[menu.main]]
+  identifier = "phd_thesis"
+  name = "PhD Thesis"
+  title = "PhD Thesis section"
+  url = "/phd_thesis/"
+  weight = -120
+
+  
+[[menu.main]]
+  identifier = "blog"
+  name = "Projects"
+  title = "Blog section"
+  url = "/post/"
+  weight = -110
+
+[[menu.main]]
+  identifier = "publications"
+  name = "Publications"
+  title = "Publications"
+  url = "/publications/"
+  weight = -109
+
+[[menu.main]]
+  identifier = "scholar"
+  name = "Google Scholar"
+  title = "Google Scholar"
+  url = "https://scholar.google.com/citations?user=uFLdS3IAAAAJ&hl=en"
+  weight = -108
+
+[[menu.main]]
+  identifier = "resume"
+  name = "Resume"
+  title = "Resume"
+  url = "/files/resume_appriou.pdf"
+  weight = -107
+
+
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = true
+    respectDoNotTrack = true
+    useSessionStorage = false
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
