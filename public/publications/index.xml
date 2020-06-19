@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Aurélien Appriou</title>
+    <link>/publications/</link>
+    <description>Recent content in Publications on Aurélien Appriou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Aurélien Appriou</copyright>
+    <lastBuildDate>Thu, 11 Jun 2020 16:48:59 +0200</lastBuildDate>
+    
+	<atom:link href="/publications/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

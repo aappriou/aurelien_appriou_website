@@ -1,6 +1,5 @@
-baseURL = "https://aappriou.github.io/appriou-site/"
+baseURL = ""
 languageCode = "en-us"
-publishDir = "docs"
 title = "Aurélien Appriou"
 theme = "personal-web"
 copyright="© Aurélien Appriou"

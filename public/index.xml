@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aurélien Appriou</title>
+    <link>/</link>
+    <description>Recent content on Aurélien Appriou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Aurélien Appriou</copyright>
+    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mental State classification (Part 1)</title>
+      <link>/post/oscillatory_classification/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/oscillatory_classification/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oscillatory&lt;/strong&gt;: Testing recent and promising machine learning algorithms to classify cognitive and affective states from oscillatory-based EEG signals&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Curiosity</title>
+      <link>/post/curiosity/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/curiosity/</guid>
+      <description>&lt;p&gt;Towards measuring states of epistemic curiosity through EEG and physiological signals&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mental State classification (Part 2)</title>
+      <link>/post/erp_classification/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/erp_classification/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Evoked Response Potential&lt;/strong&gt;: Testing recent and promising machine learning algorithms to classify cognitive states and curiosity levels from ERP-based EEG signals&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BioPyC</title>
+      <link>/post/biopyc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/biopyc/</guid>
+      <description>&lt;p&gt;A python platform for offline EEG and bio signals classification&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cognitive Workload &amp; MI-BCI</title>
+      <link>/post/mi_workload/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mi_workload/</guid>
+      <description>&lt;p&gt;Towards understanding the effect of user’s cognitive state on BCI performance&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

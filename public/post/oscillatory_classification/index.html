@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <title>Mental State classification (Part 1) - Aurélien Appriou</title>
+  <link rel='canonical' href='/post/oscillatory_classification/' />
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='description' content='' />
+  <meta name='theme-color' content='#FD3519' />
+  
+
+  <meta name="generator" content="Hugo 0.72.0" />
+
+  
+
+
+
+
+
+<link rel="stylesheet" href="/sass/style.min.cf2eeff825d4dbc673ce0b82d270d9fc32d34973a7d5cd079e0dcf4fe3e77515.css" integrity="sha256-zy7v&#43;CXU28ZzzguC0nDZ/DLTSXOn1c0Hng3PT&#43;PndRU=" media="screen">
+<link rel="stylesheet" href="/syntax.min.css" integrity="" media="screen">
+
+  <meta property="og:title" content="Mental State classification (Part 1)" />
+<meta property="og:description" content="Oscillatory: Testing recent and promising machine learning algorithms to classify cognitive and affective states from oscillatory-based EEG signals" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/oscillatory_classification/" />
+<meta property="article:published_time" content="2020-06-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-16T00:00:00+00:00" />
+
+  <meta itemprop="name" content="Mental State classification (Part 1)">
+<meta itemprop="description" content="Oscillatory: Testing recent and promising machine learning algorithms to classify cognitive and affective states from oscillatory-based EEG signals">
+<meta itemprop="datePublished" content="2020-06-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="344">
+
+
+
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+
+  <header style="background-image:linear-gradient(
+      rgba(0,0,0,0.4),rgba(0,0,0,0.4)
+    ),url(&#39;images/moi_SD.png&#39;)">
+
+  <div class="intro">
+    <div class="logo-container">
+      <a href="/">
+        <img src='/images/profile_square.png' alt="Profile Curiosity" class="rounded-logo">
+      </a>
+    </div>
+    <h2>Hi, I'm Aurélien</h2>
+    <h3>PhD candidate in computer science</h3>
+    <div class="menu">
+      
+
+        <p>
+            <a href="/phd_thesis/">
+                PhD Thesis
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Projects
+            </a>
+        </p>
+
+        <p>
+            <a href="/publications/">
+                Publications
+            </a>
+        </p>
+
+        <p>
+            <a href="https://scholar.google.com/citations?user=uFLdS3IAAAAJ&amp;hl=en">
+                Google Scholar
+            </a>
+        </p>
+
+        <p>
+            <a href="/files/resume_appriou.pdf">
+                Resume
+            </a>
+        </p>
+
+      
+        
+        <p>
+            <a href="mailto:aurelien%20[dot]%20appriou%20[at]%20inria%20[dot]%20fr" target="_blank" rel="external">
+                
+            </a>
+        </p>
+      
+    </div>
+
+  </div>
+
+  <div class="socials">
+      
+  
+    <a href="https://gitlab.com/" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M23.76 5.544c-.693-1.991-3.512-1.991-4.228 0L6.892 44.653h29.532c-.022 0-12.663-39.11-12.663-39.11zM.426 64.34c-.582 1.79.067 3.782 1.589 4.923l55.464 41.167-50.61-65.778L.426 64.34zm35.977-19.688L57.5 110.43l21.098-65.778H36.402zm78.173 19.688l-6.444-19.688L57.5 110.43l55.464-41.167a4.475 4.475 0 0 0 1.61-4.923zM95.468 5.544c-.694-1.991-3.513-1.991-4.229 0L78.576 44.653h29.533L95.468 5.543z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM90.126 40.763c.051.72.051 1.464.051 2.182 0 22.256-16.942 47.9-47.9 47.9-9.548 0-18.404-2.772-25.848-7.547 1.36.154 2.67.205 4.055.205 7.881 0 15.12-2.67 20.895-7.187-7.392-.154-13.604-5.006-15.735-11.68 2.593.385 4.929.385 7.598-.308a16.837 16.837 0 0 1-13.476-16.531v-.205a16.824 16.824 0 0 0 7.598 2.13 16.8 16.8 0 0 1-7.496-14.016c0-3.131.822-6.006 2.285-8.496a47.803 47.803 0 0 0 34.705 17.61c-2.387-11.424 6.161-20.69 16.429-20.69 4.851 0 9.215 2.027 12.296 5.313a32.99 32.99 0 0 0 10.678-4.056 16.792 16.792 0 0 1-7.393 9.267c3.389-.36 6.674-1.31 9.703-2.618a35.437 35.437 0 0 1-8.445 8.727z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  </div>
+
+</header>
+
+  <div class="content-wrapper">
+    
+      <div class="breadcrumb">
+  
+
+
+
+
+
+<span >
+  <a href="/">Aurélien Appriou</a>
+   / 
+</span>
+
+
+<span >
+  <a href="/post/"></a>
+   / 
+</span>
+
+
+<span  class="active">
+  <a href="/post/oscillatory_classification/">Mental State classification (Part 1)</a>
+  
+</span>
+
+</div>
+
+    
+    <main id="content" class="post">
+
+<h1>Mental State classification (Part 1)</h1>
+<div class="reading-time">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.5 11C29.05 11 6 34.05 6 62.5S29.05 114 57.5 114 109 90.95 109 62.5 85.95 11 57.5 11zm0 93.032c-22.947 0-41.532-18.585-41.532-41.532 0-22.947 18.585-41.532 41.532-41.532 22.947 0 41.532 18.585 41.532 41.532 0 22.947-18.585 41.532-41.532 41.532zm12.833-21.68L52.703 69.54a2.508 2.508 0 0 1-1.018-2.015V33.427a2.5 2.5 0 0 1 2.492-2.492h6.646a2.5 2.5 0 0 1 2.492 2.492v29.426l13.871 10.092c1.122.81 1.35 2.368.54 3.49l-3.904 5.377a2.51 2.51 0 0 1-3.489.54z"/>
+  
+  </svg>
+</div>
+
+  <span>2 minutes</span>
+</div>
+
+<div class="published-date">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M77.577 51.23a1.807 1.807 0 0 0-2.2.342l-27.562 27.79a1.807 1.807 0 0 1-2.2.342l-14.008-9.702a1.807 1.807 0 0 0-2.2.342l-1.952 1.968c-.287.22-.456.568-.455.936.001.37.172.716.46.934L45.637 86.77a1.807 1.807 0 0 0 2.2-.342l31.709-31.97c.287-.22.456-.567.455-.936a1.175 1.175 0 0 0-.46-.933l-1.963-1.36z"/><path d="M97.304 20H80.512c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.347.023-.685.04-1.026H34.579c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.22.019-.434.025-.652a9.788 9.788 0 0 0-5.697 4.471 9.683 9.683 0 0 0-2.65 4.764L1.158 92.871c-.965 4.689 2.6 8.503 7.948 8.503h6.334v2.673c-.077 5.41 4.263 9.861 9.705 9.953h72.16c5.438-.095 9.774-4.546 9.694-9.953V29.953c.08-5.407-4.256-9.858-9.695-9.953zM10.078 96.653c-2.378 0-3.964-1.697-3.535-3.782L16.637 43.84h80.787L87.331 92.871a5.254 5.254 0 0 1-5.091 3.782H10.078zm91.535 7.394c.036 2.403-1.891 4.382-4.308 4.424h-72.16c-2.42-.04-4.352-2.018-4.32-4.424v-2.673h60.443c5.348 0 10.484-3.814 11.449-8.503l8.897-43.215v54.391z"/><path d="M34.814 33c1.243 0 2.251-1.057 2.251-2.36 0-1.305-1.008-2.362-2.25-2.362-2.04 0-4.313-3.194-4.313-7.778s2.272-7.778 4.312-7.778c1.227 0 2.536 1.163 3.386 3.084H43C41.716 11.19 38.578 8 34.814 8 29.871 8 26 13.49 26 20.5c0 7.009 3.871 12.5 8.814 12.5z"/>
+  
+  </svg>
+</div>
+
+  <span>June 16, 2020</span>
+</div>
+
+<p><strong>Oscillatory</strong>: Testing recent and promising machine learning algorithms to classify cognitive and affective states from oscillatory-based EEG signals</p>
+<h4 id="abstract">Abstract</h4>
+<p>Estimating cognitive or affective states from brain signals is a key but challenging step in the creation of passive brain-computer interface (BCI) applications. So far, estimating mental workload or emotions from EEG signals is only feasible with modest classification accuracies, thus leading to unreliable neuroadaptive applications. However, recent machine learning algorithms, notably Riemannian geometry based classifiers (RGC) and convolutional neural networks (CNN), have shown to be promising for other BCI systems, e.g., motor imagery-BCIs. However, they have not been formally studied and compared together for cognitive or affective states classification. This paper thus explores such machine learning algorithms, proposes new variants of them, and benchmarks them with classical methods to estimate both mental workload and affective states (Valence/Arousal) from EEG signals. We study these approaches with both subject-specific and subject-independent calibration, to go towards calibration-free systems. Our results suggested that a CNN obtained the highest mean accuracy, although not significantly so, in both conditions for the mental workload study, followed by RGCs. However, this same CNN underperformed in both conditions for the emotion data set, a data set with small training data. On the contrary, RGCs proved to have the highest mean accuracy with the Filter Bank Tangent Space classifier (FBTSC) we introduced in this paper. Our results thus contributed to improve the reliability of cognitive and affective states classification from EEG. They also provide guidelines about when to use which machine learning algorithm.</p>
+<h4 id="other-members">Other members</h4>
+<p>Andrzeij Cichocki, Fabien Lotte</p>
+<h4 id="collaborations">Collaborations</h4>
+<ul>
+<li>RIKEN Brain Science Institue, Wakoshi, Japan</li>
+<li>Inria BSO, Talence, France</li>
+</ul>
+<h4 id="publications">Publications</h4>
+<ul>
+<li>Appriou A., Cichocki, A., Lotte, F., (2018) « Towards Robust Neuroadaptative HCI: Exploring Modern Machine Learning Methods to Estimate Mental Workload From EEG Signals », ACM CHI Conference on Human Factors in Computing Systems - Late Breaking Work - Montreal, Canada (6 pages)</li>
+<li>A. Appriou, A. Cichocki, and F. Lotte., (2020) « Modern machine learning  algorithms  to  classify  cognitive  and  affective states  from  electroencephalography  signals. » IEEE  Systems, Man and Cybernetics Magazine <a href="https://www.google.com">pdf</a></li>
+</ul>
+
+    </main>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      <p>For more information, contact me at: aurelien [dot] appriou [at] inria [dot] fr</p>
+    </div>
+  </footer>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
+  
+</body>
+</html>
