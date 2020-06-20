@@ -43,8 +43,8 @@ pygmentsCodeFences=true
 [params.sidebar]
   backgroundImage = 'images/moi_SD-ConvertImage.jpg' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
   gradientOverlay = '' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
-  logo = "/images/profile_square.png"
-  
+  logo = "/images/profile_square-ConvertImage.jpg"
+
 [params.assets]
   favicon = ""
   customCSS = ""
