@@ -10,7 +10,7 @@ pygmentsUseClasses=true
 pygmentsCodeFences=true
 
 [params.intro]
-  main = "Hi, I'm Aurélien"
+  main = "Hi, I'm Aurélien lala"
   sub = "PhD candidate in computer science"
 
 [params.main]
