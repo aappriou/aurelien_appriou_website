@@ -10,7 +10,7 @@ pygmentsUseClasses=true
 pygmentsCodeFences=true
 
 [params.intro]
-  main = "Hi, I'm Aurélien lala"
+  main = "Hi, I'm Aurélien"
   sub = "PhD candidate in computer science"
 
 [params.main]
@@ -44,6 +44,7 @@ pygmentsCodeFences=true
   backgroundImage = 'images/moi_SD-ConvertImage.jpg' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
   gradientOverlay = '' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
   logo = "/images/profile_square.png"
+  
 [params.assets]
   favicon = ""
   customCSS = ""
