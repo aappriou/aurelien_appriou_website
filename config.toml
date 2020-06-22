@@ -50,9 +50,9 @@ pygmentsCodeFences=true
   customCSS = ""
 
 [params.social]
-  twitter = "https://twitter.com/"
-  linkedin = "https://www.linkedin.com/in/"
-  gitlab = "https://gitlab.com/"
+  twitter = "https://twitter.com/AppriouAurelien"
+  linkedin = "https://www.linkedin.com/in/aur%C3%A9lien-appriou-8561b3a1/"
+  gitlab = "https://gitlab.inria.fr/aappriou"
 
 
 [params.contact]
