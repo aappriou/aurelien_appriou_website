@@ -41,7 +41,7 @@ pygmentsCodeFences=true
   portfolio = "project"
 
 [params.sidebar]
-  backgroundImage = "images/moi_SD-ConvertImage.jpg" # header background image - default "/images/moi_SD-ConvertImage.jpg" - Photo by Tim Marshall on Unsplash
+  backgroundImage = "images/death_sand-ConvertImage.jpg" # header background image - default "/images/moi_SD-ConvertImage.jpg" - Photo by Tim Marshall on Unsplash
   gradientOverlay = '' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
   logo = "/images/profile_square-ConvertImage.jpg"
 
@@ -72,7 +72,7 @@ pygmentsCodeFences=true
   
 [[menu.main]]
   identifier = "blog"
-  name = "Projects"
+  name = "Contributions"
   title = "Blog section"
   url = "/post/"
   weight = -110
